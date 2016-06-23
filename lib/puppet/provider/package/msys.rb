@@ -88,7 +88,7 @@ Puppet::Type.type(:package).provide(:msys, :parent => Puppet::Provider::Package)
   #
   def self.instances
     packages = []
-    packman('-Q').each_line do |line|
+    pacman('-Q').each_line do |line|
       if hash = parse_pacman_list(line)
         packages << new(hash) unless hash.empty?
       end

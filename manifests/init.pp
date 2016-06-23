@@ -6,7 +6,7 @@ class msys(
   $version          = $::msys::version,
   $proxy            = nil,
   $installer_arch   = $::msys::installer_arch,
-  $installer_source = $::msys::source_url
+  $installer_source = $::msys::installer_source
 ) inherits ::msys::params {
 
   # NOTE: (mdelaney)
