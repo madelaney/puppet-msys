@@ -22,7 +22,7 @@ class msys(
   # We should try to get LZMA support within Puppet so we can download straight
   # from SourceForge
   #
-  validate_re($installer_arch, ['i686', 'x64'])
+  validate_re($installer_arch, ['i686', 'x86_64'])
 
   $package_name = "msys2-base-${installer_arch}-${version}.zip"
   staging::deploy {
