@@ -1,0 +1,44 @@
+{
+  "name": "mdelaney-msys",
+  "version": "0.0.1",
+  "summary": "MSys Module",
+  "author": "Mike Delaney",
+  "description": "Puppet module to install and manage packages with msys(pacman).",
+  "source": "git://github.com/madelaney/puppet-msys",
+  "project_page": "http://github.com/madelaney/puppet-msys",
+  "issues_url": "https://github.com/madelaney/puppet-msys/issues",
+  "license": "BSD-2-Clause",
+  "tags": [
+    "windows",
+    "msys2"
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=4.2.0"
+    },
+    {
+      "name": "nanliu/staging",
+      "version_requirement": ">=1.0.3"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">=3.8.3 <4.0.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=3.8.3 <4.0.0"
+    }
+  ]
+}
