@@ -1,5 +1,5 @@
 class msys::params {
-	$version = 20160205
+  $version = 20160205
 
   $target = $::architecture ? {
     'x64'    => 'msys64',
