@@ -1,6 +1,5 @@
 define msys::package(
-  $ensure = 'present',
-  $proxy  = $::msys::proxy
+  $ensure = 'present'
 ) {
   package {
     $name:
