@@ -44,9 +44,12 @@ Puppet::Type.type(:package).provide(:msys, :parent => Puppet::Provider::Package)
   # the output
   #
   def self.pacman(*args)
-    pacman_cmd = File.join install_dir, 'bin', 'pacman.exe'
+    pacman_cmd = File.join install_dir, 'usr', 'bin', 'pacman.exe'
+    raise 'Pacman not installed, bad msys installation?' unless
+      File.exist? pacman_cmd
+
     cmd = [pacman_cmd] + args
-    Puppet::Util::Execution.execute(cmd)
+    Puppet::Util::Execution.execute cmd
   end
 
   # parse_pacman_list
@@ -131,15 +134,7 @@ Puppet::Type.type(:package).provide(:msys, :parent => Puppet::Provider::Package)
     raise 'You must provide the name of the package to install' if
       @resource[:name].nil?
 
-    flags = ['-S', name]
-    unless @resource[:install_options].nil?
-      flags << @resource[:install_options]
-    end
-
-    unless source = @resource[:source]
-      flags = flags.concat ['-s', source]
-    end
-
-    self.class.pacman(flags)
+    flags = ['-S', '--noconfirm', name]
+    self.class.pacman flags
   end
 end
