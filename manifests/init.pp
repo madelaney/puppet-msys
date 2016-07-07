@@ -30,10 +30,16 @@ class msys(
       source  => "${installer_source}/${package_name}",
       creates => "C:\\${target}",
       target  => 'C:\\',
-      notify  => Exec["Bootstrap ${package_name}"];
+      notify  => Exec['Rebase MSys Deployment', "Bootstrap ${package_name}"];
   }
 
   exec {
+    'Rebase MSys Deployment':
+      command     => "C:\\${target}\\autorebasebase1st.bat",
+      cwd         => "C:\\${target}\\",
+      before      => Exec["Bootstrap ${package_name}"],
+      refreshonly => true;
+
     "Bootstrap ${package_name}":
       command     => "C:\\${target}\\msys2.exe",
       cwd         => "C:\\${target}",
