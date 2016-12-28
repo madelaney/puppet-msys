@@ -1,12 +1,12 @@
 class msys(
   $ensure           = 'present',
   $packages         = {},
-  $target           = $::msys::target,
-  $version          = $::msys::version,
+  $target           = $msys::params::target,
+  $version          = $msys::params::version,
   $proxy            = nil,
-  $installer_arch   = $::msys::installer_arch,
-  $installer_source = $::msys::installer_source
-) inherits ::msys::params {
+  $installer_arch   = $msys::params::installer_arch,
+  $installer_source = $msys::params::installer_source
+) inherits msys::params {
 
   # NOTE: (mdelaney)
   # Even though the Qt Install can be automated, because this is happening within
