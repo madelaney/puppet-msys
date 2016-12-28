@@ -1,6 +1,5 @@
 class msys(
   $ensure           = 'present',
-  $proxy            = undef,
   $packages         = {},
   $target           = $::msys::target,
   $version          = $::msys::version,
